@@ -1,0 +1,161 @@
+ID = Icewave.ConfigurableStorage
+Name = "Configurable Storage"
+Version = 1
+CompatibleGameVersions = ["0.24.3"]
+ModifiesMultiplayer = true
+Author = "Icewave"
+Logo = "logo.png"
+
+Description = "allows a very easy way to scale storage to your liking\n"\
+              "base from vandlol and heavily edited by yours truly"
+
+StorageModifier = 2.0 //this value multiplies the storage of everything except ammo, so if you want 10 times the storage, then set this to 10
+
+//DO NOT EDIT BELOW THIS LINE
+
+Actions
+[	//The overrides are there, because if you find and salvage any sorta storage, be it from enemy ships or stations, then you'd also get 2 times the amount of stuff
+	//since it's initial fill status is based on total storage, so ten times the storage = ten times the loot
+	{
+		Action = Overrides
+		OverrideIn = "<resources/resources.rules>/VeryCommonMaterialDropRates"
+		CreateIfNotExisting = false
+		IgnoreIfNotExisting = false
+		Overrides
+		{	
+			StorageDestroyed = 50%/(&~/StorageModifier)
+			StorageSalvaged = 100%/(&~/StorageModifier)
+			PlayerStorageDestroyed = 50%
+			PlayerStorageSalvaged = 100%
+		}
+	}
+	{
+		Action = Overrides
+		OverrideIn = "<resources/resources.rules>/CommonMaterialDropRates"
+		CreateIfNotExisting = false
+		IgnoreIfNotExisting = false
+		Overrides
+		{	
+			StorageDestroyed = 50%/(&~/StorageModifier)
+			StorageSalvaged = 100%/(&~/StorageModifier)
+			PlayerStorageDestroyed = 50%
+			PlayerStorageSalvaged = 100%
+		}
+	}
+	{
+		Action = Overrides
+		OverrideIn = "<resources/resources.rules>/RareMaterialDropRates"
+		CreateIfNotExisting = false
+		IgnoreIfNotExisting = false
+		Overrides
+		{	
+			StorageDestroyed = 50%/(&~/StorageModifier)
+			StorageSalvaged = 100%/(&~/StorageModifier)
+			PlayerStorageDestroyed = 50%
+			PlayerStorageSalvaged = 100%
+		}
+	}
+	{
+		Action = Overrides
+		OverrideIn = "<resources/resources.rules>/ElementDropRates"
+		CreateIfNotExisting = false
+		IgnoreIfNotExisting = false
+		Overrides
+		{	
+			StorageDestroyed = 50%/(&~/StorageModifier)
+			StorageSalvaged = 100%/(&~/StorageModifier)
+			PlayerStorageDestroyed = 50%
+			PlayerStorageSalvaged = 100%
+		}
+	}
+	{
+		Action = Replace
+		Replace = "<resources/carbon/carbon.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 5*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/coil/coil.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 20*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/coil2/coil2.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 20*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/copper/copper.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 5*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/diamond/diamond.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 5*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/enriched_uranium/enriched_uranium.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 10*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/gold/gold.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 5*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/hyperium/hyperium.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 20*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/iron/iron.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 5*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/processor/processor.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 5*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/steel/steel.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 20*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/sulfur/sulfur.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 5*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/tristeel/tristeel.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 20*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/tritanium/tritanium.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 5*(&~/StorageModifier)
+	}
+	{
+		Action = Replace
+		Replace = "<resources/uranium/uranium.rules>/MaxStackSize"
+		IgnoreIfNotExisting = false
+		With = 5*(&~/StorageModifier)
+	}
+]
